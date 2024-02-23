@@ -1,6 +1,6 @@
 module github.com/jimlambrt/respwriter
 
-go 1.21.4
+go 1.21
 
 require (
 	github.com/miekg/dns v1.1.58
