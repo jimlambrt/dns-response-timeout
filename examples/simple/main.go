@@ -1,27 +1,6 @@
-# respwriter package
-[![Go Reference](https://pkg.go.dev/badge/github.com/jimlambrt/respwriter/respwriter.svg)](https://pkg.go.dev/github.com/jimlambrt/respwriter)
-[![Go Report Card](https://goreportcard.com/badge/github.com/jimlambrt/respwriter)](https://goreportcard.com/report/github.com/jimlambrt/respwriter)
+package main
 
-<hr>
-
-`respwriter` is a Go pkg that provides a meikg/dns.HandlerFunc with support for request
-timeouts via a dns.ResponseWriter wrapper.  Among other things, it provides: 
-
-* `NewHandler(...)`:  Creates a new dns.HandlerFunc that wraps the given handler
-  with a RespWriter. The returned handler will use the given logger and
-  requestTimeout to create the RespWriter. 
-* `NewRespWriter(...)`: Creates a RespWriter which is a wrapper around
-  dns.ResponseWriter that provides "base" capabilities for the wrapped writer.
-  Among other things, this is useful for ensuring that the wrapped writer is not
-  used after the context is canceled. 
-
-
-## Example 
-
-[./exampes/simple/main.go](./examples/simple/main.go)
-
-```go
-  import (
+import (
 	"fmt"
 	"net"
 	"time"
@@ -95,5 +74,3 @@ func resolve(domain string, qtype uint16) []dns.RR {
 	}
 	return in.Answer
 }
-```
-  
